@@ -2,26 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@import url("https://fonts.googleapis.com/css2?family=Titan+One&display=swap");
+
+.header {
+  font-family: "Titan One", cursive;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.arrow-container {
+  position: relative;
+  width: fit-content; /* Adjust as needed */
+}
+
+@keyframes arrowAnimation {
+  0% {
+    transform: translateX(0) rotate(0);
+  }
+
+  50% {
+    transform: translateX(-10px) rotate(-15deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+}
+
+.animated-arrow {
+  animation: arrowAnimation 4s infinite; /* Adjust the duration as needed */
+}
+
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+
+
+  50% {
+    transform: translateY(-7px) rotate(1deg);
+  }
+
+  
+
+}
+
+@keyframes ping-slow {
+  0%,
+  100% {
+    transform: scale(1);
+    
+  }
+  50% {
+    transform: scale(1.005);
+    
+  }
+}
+
+.animate-moveUpDown {
+  animation: moveUpDown 5s ease-in-out infinite;
+}
+
+.animate-ping-slow {
+  animation: ping-slow 5s infinite;
 }
